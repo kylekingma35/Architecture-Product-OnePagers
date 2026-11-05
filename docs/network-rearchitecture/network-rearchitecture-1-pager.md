@@ -1,16 +1,17 @@
 ---
-initiative: Network Re-Architecture for aiR Growth and MCP
-owner: Kyle Kingma, Michael Pang, Corey Wagehoft (Architect)
+initiative: Network Re-Architecture for aiR Growth and MCP (API Management)
+owner: Kyle Kingma, Michael Pang, Corey Wagehoft (Principal Architect)
 group: Infrastructure / Cloud Services
 updated: November 2026
 ---
 
 # Network Re-Architecture for aiR Growth and MCP — 1-Pager
 
-**Bottom line:** Fund 6 engineers to build one governed front door for Relativity and the network foundation beneath it. It lets aiR absorb 3x growth, tells us who is calling, and lets us rate limit third-party extraction. Doing nothing hits a growth ceiling and keeps aiR's value flowing to third parties.
+**Bottom line:** Fund 6 engineers to build one governed front door for Relativity aiR and the network foundation beneath it. It lets aiR absorb 3x growth, identifies all callers within the network, and lets us rate limit third-party extraction. Doing nothing hits a growth ceiling and keeps aiR's value flowing to third parties.
 
 ## Problem
-The network can't absorb 3x aiR growth, can't tell who is calling, and can't ship changes safely. A request crosses 7 components and 2 public entry points, and the busiest regions hit IP limits before projected 2028 growth arrives. Third-party tools such as Deloitte's NavigAite and FTI's IQ.AI pull document text out of aiR at scale, using Relativity as storage while the AI value is captured elsewhere; two consultancies account for 83% of third-party extraction, and 5.2 TB moved in one day through legacy paths with no signal. This hurts Relativity's business model, the internal teams counting on that growth, and the team that owns today's entry layer and carries the incidents from network changes.
+The network can't absorb 3x aiR growth, can't tell who is calling, and can't ship changes safely. A request crosses 7 components and 2 public entry points, and the busiest regions hit IP limits before projected 2028 growth arrives. Third-party tools such as Deloitte's NavigAite and FTI's IQ.AI pull document text out of aiR at scale, using Relativity as storage while the AI value is captured elsewhere; two consultancies account for 83% of third-party extraction, and 5.2 TB moved in one day through legacy paths with no way to monitor and control . This hurts Relativity's business model, the internal teams counting on that growth, and the team that owns today's entry layer and carries the incidents from network changes.
+
 Our view: if extraction gets harder and aiR's value stays in the product, customers may work with Relativity directly instead of through service providers.
 
 ## Outcome
