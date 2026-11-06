@@ -5,7 +5,7 @@ group: Infrastructure / Cloud Services
 updated: November 2026
 ---
 
-# Network Re-Architecture for aiR Growth and MCP — 1-Pager
+# Own the Front Door. Relativity aiR Network Re-Architecture — 1-Pager
 
 **Bottom line:** Build one governed front door for Relativity aiR and the network foundation beneath it. It lets aiR absorb 3x growth, adds ability to identify all callers within the network, lets us rate limit third-party extraction, and lays the foundation for API management of aiR's new MCP server. 
 
