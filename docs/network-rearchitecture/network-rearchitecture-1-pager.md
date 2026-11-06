@@ -21,7 +21,9 @@ aiR Insights Extracted from the Product:
 
 Third-party tools such as Deloitte's NavigAite and FTI's IQ.AI pull document text out of aiR at scale, using Relativity as cheap storage/compute while the AI value is captured in external third-party products; two consultancies account for 83% of third-party extraction, and 5.2 TB moved in one day with no way to monitor and control it. This hurts Relativity's business model, strengthening the value proposition of LSPs.
 
+MCP Server API Strategy
 
+(incoming)
 
 Our view: Once we can identify owners of our traffic, data extraction gets harder (keeping aiR's value stays in the product), then customers will work with Relativity directly instead of through service providers.
 
