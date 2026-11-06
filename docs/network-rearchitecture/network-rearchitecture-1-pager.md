@@ -1,5 +1,5 @@
 ---
-initiative: Network Re-Architecture for aiR Growth and MCP (API Management)
+initiative: Own the Front Door. Network Re-Architecture to prepare aiR for incoming scale, giving our MCP a management strategy, protecting aiR insights from leaving the product. 
 owner: Kyle Kingma, Michael Pang, Corey Wagehoft (Principal Architect)
 group: Infrastructure / Cloud Services
 updated: November 2026
@@ -7,25 +7,42 @@ updated: November 2026
 
 # Network Re-Architecture for aiR Growth and MCP — 1-Pager
 
-**Bottom line:** Fund 6 engineers to build one governed front door for Relativity aiR and the network foundation beneath it. It lets aiR absorb 3x growth, identifies all callers within the network, and lets us rate limit third-party extraction. Doing nothing hits a growth ceiling and keeps aiR's value flowing to third parties.
+**Bottom line:** Build one governed front door for Relativity aiR and the network foundation beneath it. It lets aiR absorb 3x growth, adds ability to identify all callers within the network, lets us rate limit third-party extraction, and lays the foundation for API management of aiR's new MCP server. 
 
-## Problem
-The network can't absorb 3x aiR growth, can't tell who is calling, and can't ship changes safely. The busiest regions hit capacity limits before projected 2028 growth arrives. Third-party tools such as Deloitte's NavigAite and FTI's IQ.AI pull document text out of aiR at scale, using Relativity as storage while the AI value is captured elsewhere; two consultancies account for 83% of third-party extraction, and 5.2 TB moved in one day with no way to monitor and control it. This hurts Relativity's business model, the internal teams counting on that growth, and the team that carries the incidents from network changes.
+Doing nothing leads to a growth ceiling and keeps aiR's valuable insights flowing to third parties.
 
-Our view: if extraction gets harder and aiR's value stays in the product, customers may work with Relativity directly instead of through service providers.
+## Problems
+
+Network Ceiling: 
+
+The network can't absorb 3x aiR growth, can't identify who owns the traffic within it, and routing changes are risky. The busiest regions hit capacity limits before projected 2028 growth arrives.  This hurts internal Relativity teams' ability to scale our products, and identify if it is us or third-party callers driving the traffic.
+
+aiR Insights Extracted from the Product: 
+
+Third-party tools such as Deloitte's NavigAite and FTI's IQ.AI pull document text out of aiR at scale, using Relativity as cheap storage/compute while the AI value is captured in external third-party products; two consultancies account for 83% of third-party extraction, and 5.2 TB moved in one day with no way to monitor and control it. This hurts Relativity's business model, strengthening the value proposition of LSPs.
+
+
+
+Our view: Once we can identify owners of our traffic, data extraction gets harder (keeping aiR's value stays in the product), then customers will work with Relativity directly instead of through service providers.
 
 ## Outcome
-Relativity governs who calls it and how much they take.
-- One governed front door for all customer traffic, so every caller is identified
-- The ability to rate limit third-party extraction, preserving the value of aiR products and so that bulk data extraction doesn't inadvertently cause 'general slowness' for Review users 
-- The MCP product gets API management and a governed path for AI-agent traffic, supporting 100,000 strategic legal users
+By the end of 2027, Relativity owns a network that is ready for aiR's growth, can identify who is calling within it, and keeps aiR's value in the product.
+
+Built for growth with identifiable traffic: The internal network supports 3x aiR growth, and every request traces back to a known caller.
+
+Data Extraction we can limit: A gateway gives Relativity the ability to rate limit third-party bulk data extraction, so aiR's insights stay in the product. Additionally, limiting large data extraction requests protects other active users' experience in the product from 'General Slowness'. 
+
+An MCP server we can manage: The MCP server gains versioning and a management solution, so AI-agent traffic runs on a governed path supporting 100,000 strategic legal users.
+
+
 
 ## Options considered
 | Option | What it delivers | Cost (eng FTEs / $) | Residual risk if we stop here |
 |---|---|---|---|
-| Do nothing | Keep today's network and entry layer | 0 engineer FTEs; no other cost | High. Growth hits the IP-capacity ceiling, and third-party extraction keeps pulling aiR's value out of the product. |
-| Per-application limits (first pass, paused) | Each API team builds its own data cap, as the Object Manager team did | FTEs not tracked; about 7 months to enforce one endpoint, with 10+ endpoints across 5 teams remaining | High. Can't see traffic outside instrumented code (5.2 TB in one day went unseen), and every team rolls out on its own. |
 | ★ Network-wide re-architecture (Recommended) | One front door, regional network hubs, and authentication and rate limiting as platform features | 6 engineer FTEs; other cost [NEEDED] | Medium. Depends on Service Auth migrating authentication and on customer change management. |
+| Per-application limits (first pass, paused) | Each API team builds its own data cap, as the Object Manager team did | FTEs not tracked; about 7 months to enforce one endpoint, with 10+ endpoints across 5 teams remaining | High. Can't see traffic outside instrumented code (5.2 TB in one day went unseen), and every team rolls out on its own. |
+| Do nothing | Keep today's network and entry layer | 0 engineer FTEs; no other cost | High. Growth hits the IP-capacity ceiling, and third-party extraction keeps pulling aiR's value out of the product. |
+
 
 ## Recommendation
 **Approach:** Three stages. 
@@ -38,16 +55,6 @@ Third, edge capabilities: identify callers and enforce rate limits at the door. 
 
 **In scope:** One governed front door for all customer traffic; regional network backbone with consolidated firewalls; caller identity established once at the door; rate limiting; API management; a separate governed path for MCP and AI-agent traffic; guardrails for service-team routing
 **Out of scope:** Rate-limit thresholds and commercial terms such as metering, tiering or contract limits (decided later); low-risk access points such as Mass Export, Direct SQL scripts, AZCopy and SMB (on the CNT roadmap); Windows-based workloads that can't join the service mesh; product-team action at the edge (teams own their internal service routing)
-
-## Ask
-
-**Engineer FTEs:** 6
-
-**Other cost:**
-
-[NEEDED: firewall capacity purchase and contract position, from the Azure and software planning exercise]; 
-
-[NEEDED: edge provider commercial cost]
 
 
 ## Risks and dependencies
