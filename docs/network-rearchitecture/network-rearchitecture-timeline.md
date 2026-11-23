@@ -16,6 +16,7 @@ Interactive version: [aiR Network Timeline (Claude artifact)](https://claude.ai/
 ## Timeline
 
 ```mermaid
+%%{init: {"gantt": {"fontSize": 11, "barHeight": 26, "barGap": 6, "topPadding": 40, "leftPadding": 210, "rightPadding": 20, "sectionFontSize": 12, "numberSectionStyles": 4}}}%%
 gantt
     title Dec 2026 to Sep 2027 (planning windows)
     dateFormat  YYYY-MM-DD
@@ -23,33 +24,33 @@ gantt
     todayMarker off
 
     section API Gateway (kGateway) OKR-18775
-    Nonprod gateway                                   :done,    gw1, 2026-12-01, 2026-12-31
-    Service Auth POC and integration (nonprod)        :done,    gw2, 2027-01-01, 2027-03-31
-    Service Auth engage - unblocked for early POC     :crit,    gw3, 2027-01-01, 2027-02-28
-    Nonprod live, Service Auth fully integrated       :done,    gw4, 2027-04-01, 2027-05-31
-    Service-owning teams begin rewiring to internal names :crit, gw5, 2027-04-01, 2027-05-31
-    Production rollout with Service Auth integration  :active,  gw6, 2027-06-01, 2027-07-31
+    Nonprod                      :done,   gw1, 2026-12-01, 2026-12-31
+    Service Auth POC             :done,   gw2, 2027-01-01, 2027-03-31
+    Service Auth engage          :crit,   gw3, 2027-01-01, 2027-02-28
+    Nonprod + Service Auth       :done,   gw4, 2027-04-01, 2027-05-31
+    Service teams rewire         :crit,   gw5, 2027-04-01, 2027-05-31
+    Prod rollout + Service Auth  :active, gw6, 2027-06-01, 2027-07-31
 
-    section vWAN hub architecture OKR-18800
-    IaC in regression                                 :done,    hub1, 2026-12-01, 2026-12-31
-    Traffic moves to production hub                   :active,  hub2, 2027-04-01, 2027-05-31
-    Operating                                         :active,  hub3, 2027-06-01, 2027-07-31
+    section vWAN hub OKR-18800
+    IaC in reg                   :done,   hub1, 2026-12-01, 2026-12-31
+    Traffic to prod hub          :active, hub2, 2027-04-01, 2027-05-31
+    Operating                    :active, hub3, 2027-06-01, 2027-07-31
 
     section Firewall consolidation OKR-18809
-    Customer comms - reserve addresses, send 90-day notice :crit, fw1, 2027-01-01, 2027-01-31
-    90-day notice window                              :         fw2, 2027-02-01, 2027-04-30
-    Consolidation design                              :         fw3, 2027-02-01, 2027-03-31
-    Nonprod rollout                                   :done,    fw4, 2027-04-01, 2027-04-30
-    Production rollout, alongside the hub             :active,  fw5, 2027-06-01, 2027-07-31
+    Notice sent                  :crit,   fw1, 2027-01-01, 2027-01-31
+    90-day window                :        fw2, 2027-02-01, 2027-04-30
+    Design                       :        fw3, 2027-02-01, 2027-03-31
+    Nonprod                      :done,   fw4, 2027-04-01, 2027-04-30
+    Prod rollout                 :active, fw5, 2027-06-01, 2027-07-31
 
-    section DNS and hostname resolution OKR-18776
-    Hostname resolution and hairpin removal (after kGateway is live) :active, dns1, 2027-07-01, 2027-09-30
+    section DNS and hostnames OKR-18776
+    Hostnames and hairpin removal :active, dns1, 2027-07-01, 2027-09-30
 
     section Go-live window
-    Hub, firewall consolidation and kGateway          :milestone, golive, 2027-06-01, 2027-07-31
+    Hub + firewall + kGateway    :active, golive, 2027-06-01, 2027-07-31
 ```
 
-Legend for the chart: light bars are nonprod or deliverable windows, blue bars are production or live windows, red bars are where another team has to engage, unstyled bars are design or waiting windows.
+Bar labels are abbreviated to fit the windows; the tables below carry the full wording. Red bars are where another team has to engage, blue bars are production or live windows, grey bars are nonprod or deliverable windows, plain bars are design or waiting windows.
 
 ## Windows by initiative
 
